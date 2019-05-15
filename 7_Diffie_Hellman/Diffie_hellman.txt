@@ -1,0 +1,51 @@
+import java.util.*;
+import java.io.*;
+
+class diffie_hellman {
+      
+      void generate() {  
+         Scanner sc = new Scanner(System.in);
+         
+         int p, g, Xa, Xb, Ya, Yb, Ka, Kb;
+         
+         System.out.println("Enter the value of Prime modulus 'p' : ");
+         p =  sc.nextInt();
+         
+         System.out.println("Enter the value of generator 'g' : ");
+         g = sc.nextInt();
+         
+         System.out.println("Enter the value of private random number 'Xa': ");
+         Xa = sc.nextInt();
+         
+         //System.out.println("Enter the value of private random number 'Xb': ");
+         Xb = sc.nextInt();
+         
+         if(Xa < p && Xb < p) {
+         
+            Ya = (int)((Math.pow(g, Xa))%p);
+            Yb = (int)((Math.pow(g, Xb))%p);
+           
+            System.out.println("Sending Ya= "+Ya+" to Bob ");
+            System.out.println("Sending Yb= "+Yb+" to ALice");
+           
+            Ka = (int)((Math.pow(Yb, Xa))%p);
+            Kb = (int)((Math.pow(Ya, Xb))%p);
+           
+            if(Ka == Kb) 
+                System.out.println("Key K = "+Ka+" generated successfully");
+            else
+                System.out.println("Key not generated ");
+         }
+         
+         else
+            System.out.println("Values of Xa and Xb are not less than the prime modulus ");
+
+   }
+}
+
+class diffie_hellman_main {
+   public static void main(String[] args) {
+      diffie_hellman dh = new diffie_hellman();
+      dh.generate();
+   }
+}
