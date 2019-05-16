@@ -13,7 +13,7 @@ while True:
                 ip = "DNS_record_not_found"
                 with open('dns.txt') as file:
                         for line in file:
-                                domainList = line.split()
+                                domainList = line.split(" - ")
                                 print(domainList)
                                 if domainList[0] == data.decode():
                                         ip = domainList[1]
