@@ -6,9 +6,9 @@ server_address= ('localhost',11000)
 sock.bind(server_address)
 
 while True:
-	print('Waiting to recieve requests')
+	print('Waiting to receive requests')
 	data,addr = sock.recvfrom(4096)
-	print('Recieved request: ',data.decode())
+	print('Received request: ',data.decode())
 	if data:
                 ip = "DNS_record_not_found"
                 with open('dns.txt') as file:
