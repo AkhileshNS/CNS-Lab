@@ -15,7 +15,7 @@ while True:
                         for line in file:
                                 domainList = line.split(" - ")
                                 print(domainList)
-                                if domainList[0] == data.decode():
+                                if domainList[0].lower() == data.decode():
                                         ip = domainList[1]
                         
                 print('Sending : ',ip)
